@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=GUI Practicas
+Version=v1.0
+Icon=/home/stefanos/Imágenes/robot_icon.png
+Exec=/home/catkin_ws/src/leial-test/practicas.sh
+Terminal=true
+Type=Application
