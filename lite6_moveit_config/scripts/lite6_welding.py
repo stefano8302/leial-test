@@ -66,7 +66,7 @@ import json
 from geometry_msgs.msg import Pose, Point, Quaternion, Vector3, Polygon # he borrado Pose
 import tf.transformations as tr
 import numpy as np
-from scipy.spatial.transform import Rotation
+#from scipy.spatial.transform import Rotation
 ## END_SUB_TUTORIAL
 
 #markers = rviz_tools.RvizMarkers('/world', 'visualization_marker')

@@ -12,10 +12,10 @@
   <arg name="geometry_length" default="0.1"/>
   <arg name="geometry_width" default="0.1"/>
   <arg name="geometry_mesh_filename" default="package://xarm_description/meshes/lite6/visual/gripper_lite.stl"/>
-  <arg name="geometry_mesh_origin_xyz" default="0.2 0 0"/>
-  <arg name="geometry_mesh_origin_rpy" default="0 0 0"/>
-  <arg name="geometry_mesh_tcp_xyz" default="0 0 0.01"/>
-  <arg name="geometry_mesh_tcp_rpy" default="0 0 0"/>
+  <arg name="geometry_mesh_origin_xyz" default="'0.2 0 0'"/>
+  <arg name="geometry_mesh_origin_rpy" default="'0 0 0'"/>
+  <arg name="geometry_mesh_tcp_xyz" default="'0 0 0.01'"/>
+  <arg name="geometry_mesh_tcp_rpy" default="'0 0 0'"/>
 
   <!-- Añadimos objeto en el escenario -->
   <arg name="add_objeto" default="true"/>
@@ -26,10 +26,10 @@
   <arg name="objeto_length" default="0.1"/>
   <arg name="objeto_width" default="0.1"/>
   <arg name="objeto_mesh_filename" default="package://xarm_description/meshes/other/gripper_lite.stl"/>
-  <arg name="objeto_mesh_origin_xyz" default="0.2 0 0"/>
-  <arg name="objeto_mesh_origin_rpy" default="0 0 0"/>
-  <arg name="objeto_mesh_tcp_xyz" default="0 0 0.01"/>
-  <arg name="objeto_mesh_tcp_rpy" default="0 0 0"/>
+  <arg name="objeto_mesh_origin_xyz" default="'0.2 0 0'"/>
+  <arg name="objeto_mesh_origin_rpy" default="'0 0 0'"/>
+  <arg name="objeto_mesh_tcp_xyz" default="'0 0 0.01'"/>
+  <arg name="objeto_mesh_tcp_rpy" default="'0 0 0'"/>
 
   <remap from="$(arg ns)/source_list" to="/source_list" />
   <include file="$(find lite6_moveit_config)/launch/moveit_rviz_common_objeto.launch">

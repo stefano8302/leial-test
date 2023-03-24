@@ -8,6 +8,10 @@ Panels:
         - /Status1
         - /MotionPlanning1
         - /MotionPlanning1/Scene Robot1
+        - /MotionPlanning1/Scene Robot1/Links1
+        - /MotionPlanning1/Scene Robot1/Links1/link_tcp1
+        - /MotionPlanning1/Scene Robot1/Links1/link_tcp1/Position1
+        - /MotionPlanning1/Scene Robot1/Links1/link_tcp1/Orientation1
         - /MotionPlanning1/Planning Request1
         - /MotionPlanning1/Planned Path1
         - /Marker1
@@ -117,7 +121,11 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          link_objeto:
+          link_geometry:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          link_geometry2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -126,6 +134,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
           other_geometry_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          other_geometry_link2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -223,7 +236,11 @@ Visualization Manager:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          link_objeto:
+          link_geometry:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          link_geometry2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -232,6 +249,11 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
           other_geometry_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          other_geometry_link2:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -290,25 +312,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 1.1035633087158203
+      Distance: 1.0840972661972046
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.2835812568664551
-        Y: -0.10377904772758484
-        Z: 2.831226311172941e-7
+        X: 0.24462828040122986
+        Y: -0.07942166924476624
+        Z: 2.2910592178959632e-7
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.2547978162765503
+      Pitch: 0.25979772210121155
       Target Frame: world
       Value: XYOrbit (rviz)
-      Yaw: 5.574939250946045
+      Yaw: 5.409916877746582
     Saved: ~
 Window Geometry:
   Displays:
@@ -326,5 +348,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1155
-  X: 702
+  X: 672
   Y: 27

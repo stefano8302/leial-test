@@ -55,18 +55,18 @@
      
     <link name="floor">
       <inertial>
-            <origin xyz="0 0 -0.005" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <mass value="1.5" />
             <inertia ixx="0.025" ixy="0.0" ixz="0.0" iyy="0.025" iyz="0.0" izz="0.0125"/>
       </inertial>
       <collision>
-        <origin xyz="0 0 -0.005" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <box size="10 10 0.01"/>
         </geometry>
       </collision>
       <visual>
-        <origin xyz="0 0 -0.005" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <box size="10 10 0.01"/>
         </geometry>
@@ -196,7 +196,7 @@
     
     <link name="container">
     <inertial>
-          <origin xyz="0 0.3 -0.02" rpy="0 0 0"/>
+          <origin xyz="0 0.3 0" rpy="0 0 0"/>
           <mass value="1" />
           <inertia ixx="0.025" ixy="0.0" ixz="0.0" iyy="0.025" iyz="0.0" izz="0.0125"/>
     </inertial>
@@ -204,13 +204,13 @@
       <geometry>
        <mesh filename="package://mycobot_description/urdf/320_urdf/Practica_recoger_dejar_c3.dae" scale="2 2 2"/>
       </geometry>
-      <origin xyz="0 0.3 -0.02" rpy="0 0 0"/>
+      <origin xyz="0 0.3 0" rpy="0 0 0"/>
     </visual>
     <collision>
       <geometry>
         <mesh filename="package://mycobot_description/urdf/320_urdf/Practica_recoger_dejar_c3.dae" scale="2 2 2"/>
       </geometry>
-      <origin xyz="0 0.3 -0.02" rpy="0 0 0"/>
+      <origin xyz="0 0.3 0" rpy="0 0 0"/>
     </collision>
   </link>
 
@@ -230,7 +230,7 @@
     
   <link name="container2">
     <inertial>
-          <origin xyz="-1.2 -0.3 -0.02" rpy="0 0 0"/>
+          <origin xyz="-1.2 -0.3 0" rpy="0 0 0"/>
           <mass value="1" />
           <inertia ixx="0.025" ixy="0.0" ixz="0.0" iyy="0.025" iyz="0.0" izz="0.0125"/>
     </inertial>
@@ -238,13 +238,13 @@
       <geometry>
        <mesh filename="package://mycobot_description/urdf/320_urdf/Practica_recoger_dejar_c3.dae" scale="2 2 2"/>
       </geometry>
-      <origin xyz="-1.2 -0.3 -0.02" rpy="0 0 0"/>
+      <origin xyz="-1.2 -0.3 0" rpy="0 0 0"/>
     </visual>
     <collision>
       <geometry>
         <mesh filename="package://mycobot_description/urdf/320_urdf/Practica_recoger_dejar_c3.dae" scale="2 2 2"/>
       </geometry>
-      <origin xyz="-1.2 -0.3 -0.02" rpy="0 0 0"/>
+      <origin xyz="-1.2 -0.3 0" rpy="0 0 0"/>
     </collision>
   </link>
 
@@ -306,7 +306,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/base.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/Base_edited_EBP.dae"/>
        <!--mesh filename="file:///home/stefanos/catkin_ws/src/myCobotROS/mycobot_description/urdf/320_urdf/base.dae"/-->
        <!--cylinder length="0.102" radius="0.0725"/-->
       </geometry>
@@ -337,7 +337,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/link1.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/link1_edited_EBP.dae"/>
        <!--cylinder length="0.106" radius="0.043"/-->
       </geometry>
       <origin xyz = "0 0 0 " rpy = " 0 0 0"/>
@@ -367,7 +367,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/link2.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/link2_edited_EBP.dae"/>
        <!--cylinder length="0.18" radius="0.036"/-->
       </geometry>
       <origin xyz = "0 0 0.0587 " rpy = " 0 0 3.1415926"/>
@@ -397,7 +397,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/link3.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/link3_edited_EBP.dae"/>
        <!--cylinder length="0.14" radius="0.0305"/-->
       </geometry>
       <origin xyz = "0 0 0.038 " rpy = " 0 0 3.1415926"/>
@@ -427,7 +427,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/link4.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/link4_edited_EBP.dae"/>
        <!--cylinder length="0.083" radius="0.029"/-->
       </geometry>
       <origin xyz = "0 -0.001 0 " rpy = " 0 0 0"/>
@@ -457,7 +457,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/link5.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/link5_edited_EBP.dae"/>
       </geometry>
       <origin xyz = "0 0.002  0 " rpy = " 0  0 3.1415926"/>
       <!--origin xyz = "0 -0.01 0 " rpy = " 1.5708 1.5708 0"/-->
@@ -555,7 +555,7 @@
   
   <joint name="joint2_to_joint1" type="revolute">
     <axis xyz="0 0 1"/>
-    <limit effort = "1000.0" lower = "-3.14" upper = "3.14159" velocity = "1.0"/>
+    <limit effort = "1000.0" lower = "-2.92" upper = "2.92" velocity = "1.0"/>
     <parent link="base"/>
     <child link="link1"/>
     <origin xyz= "0 0 0.17846" rpy = "0 0 0"/>
@@ -575,7 +575,7 @@
 
   <joint name="joint3_to_joint2" type="revolute">
     <axis xyz="0 0 1"/>
-    <limit effort = "1000.0" lower = "-3.14" upper = "3.14159" velocity = "0.4"/>
+    <limit effort = "1000.0" lower = "-2.75" upper = "2.75" velocity = "0.6"/>
     <parent link="link1"/>
     <child link="link2"/>
     <origin xyz= "0 0 0" rpy = "0 -1.57080 1.57080"/>
@@ -595,7 +595,7 @@
 
   <joint name="joint4_to_joint3" type="revolute">
     <axis xyz=" 0 0 1"/>
-    <limit effort = "1000.0" lower = "-3.14" upper = "3.14159" velocity = "0.4"/>
+    <limit effort = "1000.0" lower = "-2.75" upper = "2.75" velocity = "0.6"/>
     <parent link="link2"/>
     <child link="link3"/>
     <origin xyz= "0.13635 0 0   " rpy = "0 0 0"/>
@@ -615,7 +615,7 @@
 
   <joint name="joint5_to_joint4" type="revolute">
     <axis xyz=" 0 0 1"/>
-    <limit effort = "1000.0" lower = "-3.14" upper = "3.14159" velocity = "1.0"/>
+    <limit effort = "1000.0" lower = "-2.75" upper = "2.75" velocity = "1.0"/>
     <parent link="link3"/>
     <child link="link4"/>
     <origin xyz= "0.1 0  0.090" rpy = "0 0 1.57080"/>
@@ -635,7 +635,7 @@
 
   <joint name="joint6_to_joint5" type="revolute">
     <axis xyz="0 0 1"/>
-    <limit effort = "1000.0" lower = "-3.14" upper = "3.14159" velocity = "1.0"/>
+    <limit effort = "1000.0" lower = "-2.92" upper = "2.92" velocity = "1.0"/>
     <parent link="link4"/>
     <child link="link5"/>
     <origin xyz= "0 -0.0847 0" rpy = "1.57080 1.57080 0"/>
@@ -654,8 +654,8 @@
   </transmission>
 
   <joint name="joint6output_to_joint6" type="revolute">
-    <axis xyz="0 0 1"/>
-    <limit effort = "1000.0" lower = "-3.14" upper = "3.14159" velocity = "1.0"/>
+    <axis xyz="0 0 -1"/>
+    <limit effort = "1000.0" lower = "-3" upper = "3" velocity = "1.0"/>
     <parent link="link5"/>
     <child link="link6"/>
     <origin xyz= "0 -0.06 0" rpy = "-1.57080 3.14 0 "/>
@@ -825,7 +825,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/base.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/Base_edited_EBP.dae"/>
        <!--mesh filename="file:///home/stefanos/catkin_ws/src/myCobotROS/mycobot_description/urdf/320_urdf/base.dae"/-->
        <!--cylinder length="0.102" radius="0.0725"/-->
       </geometry>
@@ -856,7 +856,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/link1.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/link1_edited_EBP.dae"/>
        <!--cylinder length="0.106" radius="0.043"/-->
       </geometry>
       <origin xyz = "0 0 0 " rpy = " 0 0 0"/>
@@ -886,7 +886,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/link2.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/link2_edited_EBP.dae"/>
        <!--cylinder length="0.18" radius="0.036"/-->
       </geometry>
       <origin xyz = "0 0 0.0587 " rpy = " 0 0 3.1415926"/>
@@ -916,7 +916,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/link3.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/link3_edited_EBP.dae"/>
        <!--cylinder length="0.14" radius="0.0305"/-->
       </geometry>
       <origin xyz = "0 0 0.038 " rpy = " 0 0 3.1415926"/>
@@ -946,7 +946,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/link4.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/link4_edited_EBP.dae"/>
        <!--cylinder length="0.083" radius="0.029"/-->
       </geometry>
       <origin xyz = "0 -0.001 0 " rpy = " 0 0 0"/>
@@ -976,7 +976,7 @@
     </inertial>
     <visual>
       <geometry>
-       <mesh filename="package://mycobot_description/urdf/320_urdf/link5.dae"/>
+       <mesh filename="package://mycobot_description/urdf/320_urdf/link5_edited_EBP.dae"/>
       </geometry>
       <origin xyz = "0 0.002  0 " rpy = " 0  0 3.1415926"/>
       <!--origin xyz = "0 -0.01 0 " rpy = " 1.5708 1.5708 0"/-->

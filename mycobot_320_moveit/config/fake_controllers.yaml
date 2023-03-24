@@ -1,6 +1,3 @@
-moveit_sim_hw_interface:
-  joint_model_group: arm_group, hand_group
-  joint_model_group_pose: init_pose, open
 controller_list:
   - name: fake_arm_group_controller
     joints:
@@ -10,13 +7,8 @@ controller_list:
       - joint5_to_joint4
       - joint6_to_joint5
       - joint6output_to_joint6
-  - name: fake_hand_group_controller
+  - name: fake_gripper_controller
     joints:
       - finger_joint1
       - finger_joint2
-      
-initial:
-  - group: arm_group
-    pose: init_pose
-  - group: hand_group
-    pose: open
+

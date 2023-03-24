@@ -1,5 +1,4 @@
 # encoding:utf-8
-#!/usr/bin/env python3
 
 from tokenize import Pointfloat
 import cv2
@@ -9,7 +8,7 @@ import json
 import os
 import rospy
 from visualization_msgs.msg import Marker
-
+import RPi.GPIO as GPIO
 from moving_utils import Movement
 
 IS_CV_4 = cv2.__version__[0] == '4'
@@ -26,44 +25,25 @@ class Object_detect(Movement):
         dir_path = os.path.dirname(__file__)
         # 移动角度
         self.move_angles = [
-            [-7.11, -6.94, -55.01, -24.16, 0, 15],  # init the point
-            [5, -10.63, -87.8, 9.05, -3.07, 15],  # point to grab
-            [17.4, -10.1, -87.27, 5.8, -2.02, 15],  # point to grab
+            [-7.11, -6.94, -55.01, -24.16, 0, -38.84],  # init the point
+            [-1.14, -10.63, -87.8, 9.05, -3.07, -37.7],  # point to grab
+            [17.4, -10.1, -87.27, 5.8, -2.02, -37.7],  # point to grab
         ]
         # 移动坐标
         self.move_coords = [
-            [120.1, -141.6, 240.9, -173.34, -8.15, -110.11],  # above the red bucket
+            [120.1, -141.6, 240.9, -173.34, -8.15, -83.11],  # above the red bucket
             # above the yello bucket
-            #[215.2, -127.8, 260.9, -157.51, -17.5, -71.18],
-            [210.6, -130.5, 263.0, -150.99, -0.07, -107.35],
+            [215.2, -127.8, 260.9, -157.51, -17.5, -71.18],
             [209.7, -18.6, 230.4, -168.48, -9.86, -39.38],
             [196.9, -64.7, 232.6, -166.66, -9.44, -52.47],
             [126.6, -118.1, 305.0, -157.57, -13.72, -75.3],
         ]
         # which robot: USB* is m5; ACM* is wio; AMA* is raspi
-        self.robot_m5 = os.popen("ls /dev/ttyUSB*").readline()[:-1]
-        self.robot_wio = os.popen("ls /dev/ttyACM*").readline()[:-1]
-        self.robot_raspi = os.popen("ls /dev/ttyAMA*").readline()[:-1]
-        self.robot_jes = os.popen("ls /dev/ttyTHS1").readline()[:-1]
-        self.raspi = False
-        if "dev" in self.robot_m5:
-            self.Pin = [2, 5]
-        elif "dev" in self.robot_wio:
-            self.Pin = [20, 21]
-            for i in self.move_coords:
-                i[2] -= 20
-        elif "dev" in self.robot_raspi or "dev" in self.robot_jes:
-            import RPi.GPIO as GPIO
-            GPIO.setwarnings(False)
-            self.GPIO = GPIO
-            GPIO.setmode(GPIO.BCM)
-            GPIO.setup(20, GPIO.OUT)
-            GPIO.setup(21, GPIO.OUT)
-            GPIO.output(20, 1)
-            GPIO.output(21, 1)
-            self.raspi = True
-        if self.raspi:
-            self.gpio_status(False)
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(20,GPIO.OUT)
+        GPIO.setup(21,GPIO.OUT)
+        GPIO.output(20,1)
+        GPIO.output(21,1)
 
         # choose place to set cube
         self.color = 0
@@ -94,10 +74,10 @@ class Object_detect(Movement):
 
         # init a node and a publisher
         rospy.init_node("marker", anonymous=True)
-        self.pub = rospy.Publisher('/cube', Marker, queue_size=1)
+        self.pub = rospy.Publisher('/cube', Marker, queue_size=10)
         # init a Marker
         self.marker = Marker()
-        self.marker.header.frame_id = "/joint1"
+        self.marker.header.frame_id = "base"
         self.marker.ns = "cube"
         self.marker.type = self.marker.CUBE
         self.marker.action = self.marker.ADD
@@ -128,16 +108,16 @@ class Object_detect(Movement):
 
     def gpio_status(self, flag):
         if flag:
-            self.GPIO.output(20, 0)
-            self.GPIO.output(21, 0)
+            GPIO.output(20, 0)
+            GPIO.output(21, 0)
         else:
-            self.GPIO.output(20, 1)
-            self.GPIO.output(21, 1)
+            GPIO.output(20, 1)
+            GPIO.output(21, 1)
 
     # Grasping motion
     def move(self, x, y, color):
         # send Angle to move mycobot
-        print (color)
+        print color
         self.pub_angles(self.move_angles[0], 20)
         time.sleep(1.5)
         self.pub_angles(self.move_angles[1], 20)
@@ -147,25 +127,10 @@ class Object_detect(Movement):
         # send coordinates to move mycobot
         self.pub_coords([x, y, 165,  -178.9, -1.57, -25.95], 20, 1)
         time.sleep(1.5)
-        if "dev" in self.robot_m5 or self.raspi:
-            self.pub_coords([x, y, 90,  -178.9, -1.57, -25.95], 20, 1)
-        elif "dev" in self.robot_wio:
-            h = 0
-
-            if 165 < x < 180:
-                h = 10
-            elif x > 180:
-                h = 20
-            elif x < 135:
-                h = -20
-            self.pub_coords([x, y, 31.9+h,  -178.9, -1, -25.95], 20, 1)
-
+        self.pub_coords([x, y, 90,  -178.9, -1.57, -25.95], 20, 1)
         time.sleep(1.5)
         # open pump
-        if self.raspi:
-            self.gpio_status(True)
-        else:
-            self.pub_pump(True, self.Pin)
+        self.gpio_status(True)
         time.sleep(0.5)
         self.pub_angles(self.move_angles[2], 20)
         time.sleep(3)
@@ -187,11 +152,7 @@ class Object_detect(Movement):
                         [1]/1000.0, self.move_coords[color][2]/1000.0)
         time.sleep(2)
         # close pump
-        if self.raspi:
-            self.gpio_status(False)
-        else:
-            self.pub_pump(False, self.Pin)
-        time.sleep(1)
+        self.gpio_status(False)
         if color == 1:
             self.pub_marker(
                 self.move_coords[color][0]/1000.0+0.04, self.move_coords[color][1]/1000.0-0.02)
@@ -212,47 +173,20 @@ class Object_detect(Movement):
             return
         else:
             self.cache_x = self.cache_y = 0
-            # 调整吸泵吸取位置，y增大,向左移动;y减小,向右移动;x增大,前方移动;x减小,向后方移动
-            if "dev" in self.robot_wio:
-
-                if (y < -30 and x > 140) or (x > 150 and y < -10):
-                    x -= 10
-                    y += 10
-                elif y > -10:
-                    y += 10
-                elif x > 170:
-                    x -= 10
-                    y += 10
-            elif "dev" in self.robot_raspi:
-                if x > 160:
-                    y += 10
-                elif y < -20:
-                    x -= 10
-                    y += 10
-            elif "dev" in self.robot_jes:
-                y += 13
-                x += 4
-
-            elif "dev" in self.robot_m5:
-                x -= 10
-                if y < 0:
-                    y += 10
-                if y < -30:
-                    y += 7
-            print (x, y)
-            self.move(x, y, color)
+            
+            self.move(x+13, y+13, color)
 
     # init mycobot
     def run(self):
-        if not self.raspi:
-            self.pub_pump(False, self.Pin)
+
         for _ in range(5):
-            self.pub_angles([-7.11, -6.94, -55.01, -24.16, 0, -15], 20)
+            self.pub_angles([-7.11, -6.94, -55.01, -24.16, 0, -38.84], 20)
             print(_)
             time.sleep(0.5)
+        self.gpio_status(False)
+
 
     # draw aruco
-
     def draw_marker(self, img, x, y):
         # draw rectangle on img
         cv2.rectangle(
@@ -392,8 +326,7 @@ class Object_detect(Movement):
 if __name__ == "__main__":
     # open the camera
     cap_num = 0
-    cap = cv2.VideoCapture(cap_num, cv2.CAP_V4L)
-
+    cap = cv2.VideoCapture(cap_num)
     if not cap.isOpened():
         cap.open()
     # init a class of Object_detect
@@ -465,7 +398,7 @@ if __name__ == "__main__":
                 abs(detect.sum_x1-detect.sum_x2)/10.0 +
                 abs(detect.sum_y1-detect.sum_y2)/10.0
             )
-            print ("ok")
+            print "ok"
             continue
 
         # get detect result

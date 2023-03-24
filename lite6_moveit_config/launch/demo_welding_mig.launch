@@ -5,30 +5,30 @@
   <arg name="add_gripper" default="true" />
   <arg name="add_vacuum_gripper" default="false" />
   <arg name="add_other_geometry" default="true"/>
-  <arg name="geometry_type" default="box"/>
+  <arg name="geometry_type" default="mesh"/>
   <arg name="geometry_mass" default="0.1"/>
   <arg name="geometry_height" default="0.001"/>
   <arg name="geometry_radius" default="0.01"/>
   <arg name="geometry_length" default="0.1"/>
   <arg name="geometry_width" default="0.1"/>
-  <arg name="geometry_mesh_filename" default="package://xarm_description/meshes/other/link1.stl"/>
-  <arg name="geometry_mesh_origin_xyz" default="0.2 0 0"/>
-  <arg name="geometry_mesh_origin_rpy" default="0 0 0"/>
-  <arg name="geometry_mesh_tcp_xyz" default="0 0 0.01"/>
-  <arg name="geometry_mesh_tcp_rpy" default="0 0 0"/>
+  <arg name="geometry_mesh_filename" default="package://xarm_description/meshes/other/pieza_soldadura_tig_mig.stl"/>
+  <arg name="geometry_mesh_origin_xyz" default="'0.25 -0.1 0.15'"/>
+  <arg name="geometry_mesh_origin_rpy" default="'0 0 0'"/>
+  <arg name="geometry_mesh_tcp_xyz" default="'0 0 0.01'"/>
+  <arg name="geometry_mesh_tcp_rpy" default="'0 0 0'"/>
 
   <arg name="add_other_geometry2" default="true"/>
-  <arg name="geometry_type2" default="box"/>
+  <arg name="geometry_type2" default="mesh"/>
   <arg name="geometry_mass2" default="0.1"/>
   <arg name="geometry_height2" default="0.001"/>
   <arg name="geometry_radius2" default="0.01"/>
   <arg name="geometry_length2" default="0.1"/>
   <arg name="geometry_width2" default="0.1"/>
-  <arg name="geometry_mesh_filename2" default="package://xarm_description/meshes/other/link1.stl"/>
-  <arg name="geometry_mesh_origin_xyz2" default="0.3 0 0"/>
-  <arg name="geometry_mesh_origin_rpy2" default="0 0 0"/>
-  <arg name="geometry_mesh_tcp_xyz2" default="0 0 0.01"/>
-  <arg name="geometry_mesh_tcp_rpy2" default="0 0 0"/>
+  <arg name="geometry_mesh_filename2" default="package://xarm_description/meshes/other/pieza_soldadura_tig_mig.stl"/>
+  <arg name="geometry_mesh_origin_xyz2" default="'0.27 -0.1 0.15'"/>
+  <arg name="geometry_mesh_origin_rpy2" default="'0 0 0'"/>
+  <arg name="geometry_mesh_tcp_xyz2" default="'0 0 0.01'"/>
+  <arg name="geometry_mesh_tcp_rpy2" default="'0 0 0'"/>
 
   <!-- Añadimos objeto en el escenario -->
   <arg name="add_objeto" default="true"/>

@@ -1,10 +1,11 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # encoding:utf-8
 
 
-from Tkinter import *
-import ttk
-#from Tkinter.ttk import *
+from tkinter import *
+#import ttk
+from tkinter.ttk import *
+from tkinter import ttk
 
 import os, time
 import cv2
@@ -59,8 +60,8 @@ class Application(object):
         self.myCombox = ttk.Combobox(self.win, values=self.myComboList, width=31)
         self.myCombox.grid(row=0, column=2)
         
-        self.myComboList2 = [u"RViz Deslizadores Pinza Fija", u"RViz Deslizadores Pinza Movil", u"RViz MoveIt Pinza Fija", u"RViz MoveIt Apagado Pinza Fija",
-                             u"RViz MoveIt Pinza Movil", u"RViz Verter Cerveza", u"RViz Evitar Obstaculo", u"RViz+Gazebo 2 Robots y cinta",
+        self.myComboList2 = [u"RViz MoveIt Pinza Fija", u"RViz MoveIt Apagado Pinza Fija",
+                             u"RViz MoveIt Pinza Movil", u"RViz Evitar Obstaculo",
                              u"RViz Visión Artificial Moveit", u"Lite6 RViz Moveit pinza fija", u"Lite6 RViz Moveit pinza puntos",
                              u"Lite6 RViz Moveit pinza laser", u"Lite6 RViz Moveit pinza MIG/MAG/TIG", u"Lite6 RViz Moveit pinza objeto"]
         self.myCombox2 = ttk.Combobox(self.win, values=self.myComboList2, width=28)
@@ -290,43 +291,43 @@ class Application(object):
     def open_py(self):
         os.system(
             
-            "python home/catkin_ws/src/mycobot_ai/scripts/detect_obj_img_pinza.py"
+            "python3 /home/catkin_ws/src/mycobot_ai/scripts/detect_obj_img_pinza.py"
         )
 
     def open_py1(self):
         os.system(
             
-            "python home/catkin_ws/src/mycobot_ai/scripts/detect_obj_color_pinza.py"
+            "python3 /home/catkin_ws/src/mycobot_ai/scripts/detect_obj_color_pinza.py"
         )
     def python_py1_moveit(self):
         os.system(
-            "python home/catkin_ws/src/mycobot_ai/scripts/detect_obj_color_pinza_moveit.py"
+            "python3 /home/catkin_ws/src/mycobot_ai/scripts/detect_obj_color_pinza_moveit.py"
         )
     def open_py2(self):
         os.system(
             
-            "python home/catkin_ws/src/mycobot_ai/scripts/detect_encode.py"
+            "python3 /home/catkin_ws/src/mycobot_ai/scripts/detect_encode.py"
         )
 
     def add_img(self):
         os.system(
             
-            "python home/catkin_ws/src/mycobot_ai/scripts/add_img.py"
+            "python3 /home/catkin_ws/src/mycobot_ai/scripts/add_img.py"
         )
         
     def open_pysuction(self):
         os.system(
-            "python home/catkin_ws/src/mycobot_320_moveit/scripts/mycobot320_legrip_pi_pl.py"
+            "python3 /home/catkin_ws/src/mycobot_320_moveit/scripts/mycobot320_legrip_pi_pl.py"
         )
 
     def python_moveitcommander(self):
         os.system(
-            "python home/catkin_ws/src/mycobot_320_moveit/scripts/mycobot320_legrip_pi_pl2.py"
+            "python3 /home/catkin_ws/src/mycobot_320_moveit/scripts/mycobot320_legrip_pi_pl2.py"
         )
 
     def python_avoid(self):
         os.system(
-            "python home/catkin_ws/src/mycobot_320_moveit/scripts/mycobot320_avoid.py"
+            "python3 /home/catkin_ws/src/mycobot_320_moveit/scripts/mycobot320_avoid.py"
         )
 
     def python_moveitcommander_cmdline(self):
@@ -336,13 +337,13 @@ class Application(object):
 
     def python_writing(self):
         os.system(
-            "python home/catkin_ws/src/mycobot_320_moveit/scripts/mycobot320_writing.py"
+            "python3 /home/catkin_ws/src/mycobot_320_moveit/scripts/mycobot320_writing.py"
         )
     
 
     def lite6_python_welding(self):
         os.system(
-            "python home/catkin_ws/src/lite6_moveit_config/scripts/lite6_welding.py"
+            "python3 /home/catkin_ws/src/lite6_moveit_config/scripts/lite6_welding.py"
         )
 
     def roscore(self):
@@ -358,81 +359,81 @@ class Application(object):
     def vis_art(self):
         os.system(
             
-            "roslaunch home/catkin_ws/src/mycobot_ai/launch/vision_320.launch"
+            "roslaunch /home/catkin_ws/src/mycobot_ai/launch/vision_320.launch"
         )
 
     def vis_art_moveit(self):
         os.system(
             
-            "roslaunch home/catkin_ws/src/mycobot_320_moveit/launch/demo_vision_moveit_apagado.launch"
+            "roslaunch /home/catkin_ws/src/mycobot_320_moveit/launch/demo_vision_moveit_apagado.launch"
         )
 
     def rviz_desliza_fija(self):
         os.system(
-            "roslaunch home/catkin_ws/src/mycobot_320/launch/mycobot_320_slider.launch"
+            "roslaunch /home/catkin_ws/src/mycobot_320/launch/mycobot_320_slider.launch"
         )
     
     def rviz_desliza_movil(self):
         os.system(
-            "roslaunch home/catkin_ws/src/mycobot_320/launch/mycobot_320_slider_gripper.launch"
+            "roslaunch /home/catkin_ws/src/mycobot_320/launch/mycobot_320_slider_gripper.launch"
         )
     
     def rviz_moveit_fija(self):
         os.system(
-            "roslaunch home/catkin_ws/src/mycobot_320_moveit/launch/demo.launch"
+            "roslaunch /home/catkin_ws/src/mycobot_320_moveit/launch/demo.launch"
         )
     def rviz_moveit_apagado_fija(self):
         os.system(
-            "roslaunch home/catkin_ws/src/mycobot_320_moveit/launch/demo_moveit_apagado.launch"
+            "roslaunch /home/catkin_ws/src/mycobot_320_moveit/launch/demo_moveit_apagado.launch"
         )
     def rviz_moveit_movil(self):
         os.system(
-            "roslaunch home/catkin_ws/src/mycobot_320_moveit/launch/demo_pinza.launch"
+            "roslaunch /home/catkin_ws/src/mycobot_320_moveit/launch/demo_pinza.launch"
         )
     def lite6_rviz_moveit_fija(self):
         os.system(
-            "roslaunch home/catkin_ws/src/lite6_moveit_config/launch/demo_welding.launch"
+            "roslaunch /home/catkin_ws/src/lite6_moveit_config/launch/demo_welding.launch"
         )
     def lite6_rviz_moveit_puntos(self):
         os.system(
-            "roslaunch home/catkin_ws/src/lite6_moveit_config/launch/demo_welding_spot.launch"
+            "roslaunch /home/catkin_ws/src/lite6_moveit_config/launch/demo_welding_spot.launch"
         )
     def lite6_rviz_moveit_laser(self):
         os.system(
-            "roslaunch home/catkin_ws/src/lite6_moveit_config/launch/demo_welding_laser.launch"
+            "roslaunch /home/catkin_ws/src/lite6_moveit_config/launch/demo_welding_laser.launch"
         )
     def lite6_rviz_moveit_mig(self):
         os.system(
-            "roslaunch home/catkin_ws/src/lite6_moveit_config/launch/demo_welding_mig.launch"
+            "roslaunch /home/catkin_ws/src/lite6_moveit_config/launch/demo_welding_mig.launch"
         )
     def lite6_rviz_moveit_objeto(self):
         os.system(
-            "roslaunch home/catkin_ws/src/lite6_moveit_config/launch/demo_welding_objeto.launch"
+            "roslaunch /home/catkin_ws/src/lite6_moveit_config/launch/demo_welding_objeto.launch"
         )
             
     def simu_cerveza(self):
         os.system(
-            "roslaunch home/catkin_ws/src/mycobot_320_moveit/launch/demo_pouring.launch"
+            "roslaunch /home/catkin_ws/src/mycobot_320_moveit/launch/demo_pouring.launch"
         )
         
     def rviz_avoid(self):
         os.system(
-            "roslaunch home/catkin_ws/src/mycobot_320_moveit/launch/demo.launch"
+            "roslaunch /home/catkin_ws/src/mycobot_320_moveit/launch/demo.launch"
         )
     
     def simu_2robocinta(self):
         os.system(
-            "roslaunch home/catkin_ws/src/conveyor_demo/src/demo_world/launch/demo_robots.launch"
+            "roslaunch /home/catkin_ws/src/conveyor_demo/src/demo_world/launch/demo_robots.launch"
         )
         
     #def simu_sucticube(self):
     #    os.system(
-    #        "roslaunch home/catkin_ws/src/myCobotROS/mycobot_320_moveit_pi_pl/launch/demo_gazebo_suctiongrip.launch"
+    #        "roslaunch /home/catkin_ws/src/myCobotROS/mycobot_320_moveit_pi_pl/launch/demo_gazebo_suctiongrip.launch"
     #    )
             
     def rviz_writing(self):
         os.system(
-            "roslaunch home/catkin_ws/src/myCobotROS/mycobot_320_moveit_pi_pl/launch/demo_writing.launch"
+            "roslaunch /home/catkin_ws/src/myCobotROS/mycobot_320_moveit_pi_pl/launch/demo_writing.launch"
         )
         
     #def close_py(self):

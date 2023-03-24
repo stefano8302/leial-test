@@ -5,9 +5,9 @@ import os, cv2, sys
 def take_photo():
     # 提醒用户操作字典
     print("*********************************************")
-    print("*  热键(请在摄像头的窗口使用)：             *")
-    print("*  z: 拍摄图片                              *")
-    print("*  q: 退出                                  *")
+    print("*  Teclas de acceso directo (utilicelas en la ventana de la camara)：             *")
+    print("*  z: Tomar fotografia                             *")
+    print("*  q: abandonar                                  *")
     print("*********************************************")
 
     # 创建/使用local_photo文件夹
@@ -47,10 +47,12 @@ def take_photo():
 
 
 def cut_photo():
-    path = os.getcwd() + '/local_photo/img'
+    path = '/home/ubuntu/catkin_ws/src/mycobot_ros/mycobot_ai/local_photo/img'
+    file_len = 0
     for i, j, k in os.walk(path):
         file_len = len(k)
-    print("请截取要识别的部分")
+    print file_len
+    print("Po favor trunque la parte que desea identifcar")
     # root = tk.Tk()
     # root.withdraw()
     # temp1=filedialog.askopenfilename(parent=root)   #rgb
@@ -75,7 +77,7 @@ def cut_photo():
     if roi != (0, 0, 0, 0):
         crop = cut[y:y + h, x:x + w]
         cv2.imshow('crop', crop)
-        cv2.imwrite('local_photo/img/goal{}.jpeg'.format(str(file_len + 1)),
+        cv2.imwrite('/home/ubuntu/catkin_ws/src/mycobot_ros/mycobot_ai/local_photo/img/goal{}.jpeg'.format(str(file_len + 1)),
                     crop)
         print('Saved!')
 

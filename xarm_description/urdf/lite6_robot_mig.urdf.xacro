@@ -71,7 +71,7 @@
     objeto_length="$(arg objeto_length)" objeto_width="$(arg objeto_width)" />
 
   <xacro:if value="$(arg add_gripper)">
-    <xacro:include filename="$(find xarm_description)/urdf/lite_gripper.urdf.xacro" />
+    <xacro:include filename="$(find xarm_description)/urdf/lite_gripper_mig.urdf.xacro" />
     <xacro:uflite_gripper_urdf attach_to="$(arg prefix)link_eef" />
   </xacro:if>
 

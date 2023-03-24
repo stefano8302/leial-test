@@ -7,5 +7,4 @@
 
   <!-- loads ros_controllers to the param server -->
   <rosparam file="$(find mycobot_320_moveit)/config/ros_controllers.yaml"/>
-  <arg name="execution_type" default="interpolate"/>
 </launch>

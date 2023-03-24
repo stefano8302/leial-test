@@ -31,7 +31,7 @@
 
   <!-- Load universal robot description format (URDF) -->
   <param if="$(arg load_robot_description)" name="$(arg robot_description)" 
-    command="xacro --inorder '$(find xarm_description)/urdf/lite6_robot.urdf.xacro' limited:=true
+    command="xacro --inorder  '$(find xarm_description)/urdf/lite6_robot.urdf.xacro' limited:=true
       add_gripper:=$(arg add_gripper)
       add_vacuum_gripper:=$(arg add_vacuum_gripper)
       add_other_geometry:=$(arg add_other_geometry)
@@ -42,10 +42,10 @@
       geometry_length:=$(arg geometry_length)
       geometry_width:=$(arg geometry_width)
       geometry_mesh_filename:=$(arg geometry_mesh_filename)
-      'geometry_mesh_origin_xyz:=$(arg geometry_mesh_origin_xyz)'
-      'geometry_mesh_origin_rpy:=$(arg geometry_mesh_origin_rpy)'
-      'geometry_mesh_tcp_xyz:=$(arg geometry_mesh_tcp_xyz)'
-      'geometry_mesh_tcp_rpy:=$(arg geometry_mesh_tcp_rpy)'
+      geometry_mesh_origin_xyz:=$(arg geometry_mesh_origin_xyz)
+      geometry_mesh_origin_rpy:=$(arg geometry_mesh_origin_rpy)
+      geometry_mesh_tcp_xyz:=$(arg geometry_mesh_tcp_xyz)
+      geometry_mesh_tcp_rpy:=$(arg geometry_mesh_tcp_rpy)
       add_objeto:=$(arg add_objeto)
       objeto_type:=$(arg objeto_type)
       objeto_mass:=$(arg objeto_mass)
@@ -53,10 +53,10 @@
       objeto_radius:=$(arg objeto_radius)
       objeto_length:=$(arg objeto_length)
       objeto_width:=$(arg objeto_width)
-  "/>
+    "/>
 
   <param if="$(arg load_robot_description)" name="$(arg robot_description)_semantic" 
-    command="xacro --inorder '$(find xarm_description)/srdf/xarm.srdf.xacro' dof:=6 robot_type:=lite
+    command="xacro --inorder  '$(find xarm_description)/srdf/xarm.srdf.xacro' dof:=6 robot_type:=lite
       add_gripper:=$(arg add_gripper) add_vacuum_gripper:=$(arg add_vacuum_gripper) add_other_geometry:=$(arg add_other_geometry)
       add_objeto:=$(arg add_objeto)
   "/>
