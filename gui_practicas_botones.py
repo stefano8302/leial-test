@@ -788,8 +788,8 @@ class Application(object):
         self.myCombox = ttk.Combobox(self.frame1, values=self.myComboList, width=28)
         self.myCombox.grid(row=0, column=2)
         
-        self.myComboList2 = [u"Mycobot Deslizadores Pinza Fija", u"Mycobot Deslizadores Pinza Movil", u"Mycobot MoveIt Pinza Fija", u"Mycobot MoveIt Apagado Pinza Fija",
-                             u"Mycobot MoveIt Pinza Movil", u"Mycobot Verter Cerveza", u"Mycobot Evitar Obstaculo", u"Mycobot 2 Robots y cinta",
+        self.myComboList2 = [u"Mycobot MoveIt Pinza Fija", u"Mycobot MoveIt Apagado Pinza Fija",
+                             u"Mycobot MoveIt Pinza Movil", u"Mycobot Evitar Obstaculo",
                              u"Mycobot Visión Artificial Moveit", u"Lite6 Moveit pinza fija", u"Lite6 Evitar Obstaculo", u"Lite6 Moveit pinza puntos",
                              u"Lite6 Moveit pinza laser", u"Lite6 Moveit pinza MIG/MAG", u"Lite6 Moveit pinza TIG", u"Lite6 Moveit pinza objeto"]
         self.myCombox2 = ttk.Combobox(self.frame1, values=self.myComboList2, width=28)
@@ -1175,7 +1175,7 @@ class Application(object):
             #    t1 = threading.Thread(target=self.python_moveitcommander)
             #    t1.setDaemon(True)
             #    t1.start()
-            elif one == u"Evitar Obstaculos":
+            elif one == u"Mycobot Evitar Obstaculos":
                 self.run_py = "mycobot320_avoid.py"
                 t1 = threading.Thread(target=self.python_avoid)
                 t1.setDaemon(True)
@@ -1183,6 +1183,11 @@ class Application(object):
             elif one == u"Moveit Commander Command Line":
                 self.run_py = "moveit_commander_cmdline.py"
                 t1 = threading.Thread(target=self.python_moveitcommander_cmdline)
+                t1.setDaemon(True)
+                t1.start()
+            elif one == u"Lite6 Evitar Obstaculos":
+                self.run_py = "lite6_avoid.py"
+                t1 = threading.Thread(target=self.python_lite6_avoid)
                 t1.setDaemon(True)
                 t1.start()
             #elif one == u"Robot Escribe LEIAL":

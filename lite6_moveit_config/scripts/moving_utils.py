@@ -14,12 +14,12 @@ class Movement(object):
 		self.coord_pub = rospy.Publisher("mycobot/coords_goal", MycobotSetCoords, queue_size=5)
 
 		self.pump_pub = rospy.Publisher("mycobot/pump_status", MycobotPumpStatus, queue_size=10)
-                self.gripper_pub = rospy.Publisher("mycobot/gripper_status", MycobotGripperStatus, queue_size=10) # anadido por Stefano
+		self.gripper_pub = rospy.Publisher("mycobot/gripper_status", MycobotGripperStatus, queue_size=10) # anadido por Stefano
 
 		self.angles = MycobotSetAngles()
 		self.coords = MycobotSetCoords()
 		self.pump = MycobotPumpStatus()
-                self.gripper = MycobotGripperStatus() # anadido por Stefano
+		self.gripper = MycobotGripperStatus() # anadido por Stefano
 
 	def pub_coords(self, item, sp=20, m=1):
 		self.coords.x = item[0]
@@ -51,7 +51,7 @@ class Movement(object):
 		self.pump_pub.publish(self.pump)
 
         # anadido por Stefano
-        def pub_gripper(self, flag, Pin):
+	def pub_gripper(self, flag, Pin):
 		self.gripper.Status = flag
 		self.gripper.Pin1 = Pin[2]
 		self.gripper.Pin2 = Pin[3]

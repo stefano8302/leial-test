@@ -56,10 +56,7 @@ from std_msgs.msg import String
 from std_srvs.srv import Empty
 from moveit_commander.conversions import pose_to_list
 
-from moving_utils import Movement
-from pymycobot.mycobot import MyCobot
-from pymycobot.genre import Angle
-from pymycobot import PI_PORT, PI_BAUD
+
 import time
 from tokenize import Pointfloat
 import json
@@ -365,7 +362,7 @@ class MoveGroupPythonIntefaceTutorial(object):
     pose_goal.orientation.z = 0.70
     pose_goal.position.x = 0.32
     pose_goal.position.y = -0.06
-    pose_goal.position.z = 0.25
+    pose_goal.position.z = 0.35
     group.set_pose_target(pose_goal)
 
     ## Now, we call the planner to compute the plan and execute it.
